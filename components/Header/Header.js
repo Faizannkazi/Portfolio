@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import { useSfx } from "utils/use-sfx";
 import SoundBar from "./SoundBar/SoundBar";
@@ -84,7 +85,7 @@ const Header = ({ children }) => {
           <div className="hamburger w-6 h-6 flex items-center justify-center">
             <div className="relative flex-none w-full bg-white duration-300 flex items-center justify-center" />
           </div>
-          {children}
+          {children && typeof children === 'object' ? React.cloneElement(children, { onResumeDownload: handleResumeDownload }) : children}
         </div>
       </div>
     </nav>

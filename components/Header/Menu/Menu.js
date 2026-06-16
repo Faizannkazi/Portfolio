@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { MENULINKS } from "../../../constants";
 
-const Menu = () => {
+const Menu = ({ onResumeDownload }) => {
   useEffect(() => {
     const anchorNodes = document.querySelectorAll('a[href^="#"]');
 
@@ -36,6 +36,19 @@ const Menu = () => {
                 </a>
               </li>
             ))}
+            <li className="p-0 m-6 text-2xl block">
+              <button
+                onClick={() => {
+                  onResumeDownload();
+                  const checkbox = document.querySelector(".checkbox-toggle");
+                  if (checkbox) checkbox.checked = false;
+                }}
+                className="link relative inline font-mono font-bold text-5xl duration-300 hover:no-underline"
+                aria-label="Download Resume"
+              >
+                Resume
+              </button>
+            </li>
           </ul>
         </div>
       </div>
