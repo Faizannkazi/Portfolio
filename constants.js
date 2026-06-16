@@ -91,54 +91,40 @@ export const SKILLS = {
 export const PROJECTS = [
   {
     name: "Resume Score & Job Recommendation",
-    imageKey: "ready-ai",
+    imageKey: "resume-score",
     description:
       "Built an ATS simulator that scores resumes and recommends jobs using AI-driven semantic analysis.",
     gradient: ["#FF9F43", "#FF6B6B"],
     url: "https://ats-resume-matching-system.streamlit.app/",
-    tech: ["react", "nextjs", "tailwindcss"],
+    tech: ["python", "pandas", "gemini","streamlit"
+    ],
   },
   {
     name: "House Price Prediction",
-    imageKey: "bot9",
+    imageKey: "house-price",
     description:
       "Developed a regression model for predicting house prices and deployed it through a Flask backend.",
     gradient: ["#4D96FF", "#1B262C"],
-    url: null,
-    tech: ["javascript", "react"],
+    url: "https://github.com/Faizannkazi/Pune_house_price_predictor",
+    tech: ["python", "flask"],
   },
   {
     name: "Weather Monitoring Web App",
-    imageKey: "airbnb",
+    imageKey: "weather-site",
     description:
       "Built a responsive web app using OpenWeatherMap API to display real-time weather conditions.",
     gradient: ["#22C55E", "#0F766E"],
-    url: null,
-    tech: ["javascript", "react"],
-  },
-  {
-    name: "Resume-Score-Job-Recommendation-Engine",
-    imageKey: "resume-score",
-    description: "ATS simulator and job recommendation engine (GitHub repo).",
-    gradient: ["#FF8A65", "#FF7043"],
-    url: "https://github.com/Faizannkazi/Resume-Score-Job-Recommendation-Engine",
-    tech: ["python", "streamlit"],
-  },
-  {
-    name: "Weather Website",
-    imageKey: "weather-site",
-    description: "Responsive weather monitoring site using OpenWeatherMap API (GitHub repo).",
-    gradient: ["#60A5FA", "#3B82F6"],
     url: "https://github.com/Faizannkazi/Weather-website",
-    tech: ["html", "css", "javascript"],
+    tech: ["javascript", "html", "css"],
   },
+  
   {
     name: "Student Feedback Analysis",
     imageKey: "student-feedback",
     description: "NLP-based student feedback analysis project (GitHub repo).",
     gradient: ["#9C27B0", "#7B1FA2"],
     url: "https://github.com/Faizannkazi/Student-Feedback-Analysis",
-    tech: ["python", "nlp"],
+    tech: ["python"],
   },
   {
     name: "GreenGuardAi",

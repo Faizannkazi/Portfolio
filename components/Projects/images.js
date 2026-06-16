@@ -9,10 +9,11 @@ import airbnb from "../../public/projects/airbnb.webp";
 import medium from "../../public/projects/medium.webp";
 import inshorts from "../../public/projects/inshorts.webp";
 import tesla from "../../public/projects/tesla.webp";
-import resumeScore from "../../public/projects/resume-score.svg";
-import weatherSite from "../../public/projects/weather-site.svg";
-import studentFeedback from "../../public/projects/student-feedback.svg";
-import greenguard from "../../public/projects/greenguard.svg";
+import housePrice from "../../public/projects/house-price.png";
+import resumeScore from "../../public/projects/resume-score.png";
+import weatherSite from "../../public/projects/weather-site.png";
+import studentFeedback from "../../public/projects/student-feedback.png";
+import greenguard from "../../public/projects/greenguard.jpg";
 
 export const PROJECT_IMAGES = {
   nextboss,
@@ -26,6 +27,7 @@ export const PROJECT_IMAGES = {
   medium,
   inshorts,
   tesla,
+  "house-price": housePrice,
   "resume-score": resumeScore,
   "weather-site": weatherSite,
   "student-feedback": studentFeedback,

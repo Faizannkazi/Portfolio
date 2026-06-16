@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#FF4B4B" />
+  <path d="M40 30h40v20H40z" fill="#FFF" />
+  <path d="M40 70h40v20H40z" fill="#FFF" />
+  <text x="60" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#FF4B4B">SL</text>
+</svg>
