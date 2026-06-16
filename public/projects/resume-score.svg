@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#FF9F43" />
+      <stop offset="1" stop-color="#FF6B6B" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)" rx="24" />
+  <g fill="#fff" font-family="Arial, Helvetica, sans-serif">
+    <text x="60" y="150" font-size="48" font-weight="700">Resume Score</text>
+    <text x="60" y="220" font-size="28" opacity="0.9">Job Recommendation Engine</text>
+    <rect x="60" y="260" width="420" height="28" rx="14" fill="#ffffff33" />
+    <rect x="60" y="305" width="320" height="28" rx="14" fill="#ffffff33" />
+    <g transform="translate(760,120)">
+      <rect width="340" height="220" rx="12" fill="#ffffff22" />
+      <text x="24" y="48" font-size="22" fill="#fff">Semantic</text>
+      <text x="24" y="86" font-size="22" fill="#fff">Analysis</text>
+      <text x="24" y="124" font-size="22" fill="#fff">Streamlit</text>
+    </g>
+  </g>
+</svg>
