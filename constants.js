@@ -132,7 +132,7 @@ export const PROJECTS = [
     description: "GreenGuardAi — environmental AI project (GitHub repo).",
     gradient: ["#43A047", "#2E7D32"],
     url: "https://github.com/Faizannkazi/GreenGuardAi",
-    tech: ["python", "tensorflow"],
+    tech: ["python"],
   },
 ];
 

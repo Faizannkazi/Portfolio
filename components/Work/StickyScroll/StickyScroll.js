@@ -20,6 +20,18 @@ const StickyScroll = ({ contentItems }) => {
     offset: ["start start", "end start"],
   });
 
+  const handleWheel = (event) => {
+    const target = event.currentTarget;
+    const { scrollTop, scrollHeight, clientHeight } = target;
+    const deltaY = event.deltaY;
+    const isAtTop = scrollTop <= 0;
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+    if ((deltaY < 0 && !isAtTop) || (deltaY > 0 && !isAtBottom)) {
+      event.stopPropagation();
+    }
+  };
+
   const cardLength = contentItems.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -62,6 +74,11 @@ const StickyScroll = ({ contentItems }) => {
           backgroundColor:
             backgroundColors[activeCard % backgroundColors.length],
         }}
+        style={{
+          overscrollBehaviorY: "auto",
+          touchAction: "pan-y",
+        }}
+        onWheel={handleWheel}
         className="h-[28rem] flex justify-center space-x-10 p-4 rounded-2xl outline outline-1 outline-gray-dark-1 overflow-y-auto no-scrollbar"
       >
         <div className="flex items-start px-4">
