@@ -106,7 +106,7 @@ const Projects = ({ isDesktop, clientHeight }) => {
         </div>
         <div
           className={`${
-            clientHeight > 650 ? "mt-12" : "mt-8"
+            clientHeight > 650 ? "mt-20" : "mt-16"
           } flex project-wrapper no-scrollbar w-fit staggered-reveal`}
         >
           {PROJECTS.map((project, index) => (

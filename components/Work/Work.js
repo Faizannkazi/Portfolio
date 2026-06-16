@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+﻿import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Tabs from "./Tabs/Tabs";
@@ -82,7 +82,7 @@ const Work = ({ isDesktop }) => {
               Experience
             </h2>
             <p className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-              A quick recap of where I&apos;ve worked.{" "}
+              A quick recap of where I&apos;ve worked.
             </p>
           </div>
           <Tabs tabItems={tabItems} />

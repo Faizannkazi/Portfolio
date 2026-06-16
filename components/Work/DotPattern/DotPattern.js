@@ -33,7 +33,7 @@ const DotPattern = ({
           x={x}
           y={y}
         >
-          <circle id="pattern-circle" cx={cy} cy={cy} r={cr} />
+          <circle cx={cx} cy={cy} r={cr} />
         </pattern>
       </defs>
       <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${id})`} />

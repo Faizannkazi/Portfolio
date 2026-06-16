@@ -70,11 +70,18 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
       >
         <Image
           src="/project-bg.svg"
-          alt=""
+          alt="Background gradient"
           className="absolute w-full h-full top-0 left-0 opacity-20 rounded-3xl"
           fill
         />
-        <Image {...imageProps} />
+        <Image
+          src={imageProps.src}
+          alt={imageProps.alt}
+          fill={imageProps.fill}
+          className={imageProps.className}
+          {...(imageProps.placeholder ? { placeholder: imageProps.placeholder } : {})}
+          {...(imageProps.blurDataURL ? { blurDataURL: imageProps.blurDataURL } : {})}
+        />
         {!isDesktop && (
           <div
             className="absolute bottom-0 left-0 w-full h-20"

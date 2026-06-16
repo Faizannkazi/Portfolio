@@ -28,6 +28,15 @@ const Header = ({ children }) => {
     };
   }, [handleKeyDown]);
 
+  const handleResumeDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Resume.pdf";
+    link.download = "Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav className="w-full fixed top-0 py-8 z-50 select-none bg-gradient-to-b from-black shadow-black transition-all duration-300">
       <div className="flex justify-between section-container">
@@ -40,6 +49,29 @@ const Header = ({ children }) => {
           />
         </a>
         <div className="outer-menu relative flex items-center gap-8 z-[1]">
+          <button
+            onClick={handleResumeDownload}
+            className="link hidden md:flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-light hover:text-indigo-dark transition-colors duration-300"
+            aria-label="Download Resume"
+            title="Download Resume"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Resume
+          </button>
           <SoundBar />
           <input
             ref={inputRef}

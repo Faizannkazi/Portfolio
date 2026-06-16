@@ -40,6 +40,7 @@ const Contact = () => {
   const initialState = { name: "", email: "", message: "" };
   const [formData, setFormData] = useState(initialState);
   const [mailerResponse, setMailerResponse] = useState("not initiated");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const buttonElementRef = useRef(null);
   const sectionRef = useRef(null);
   const sfx = useSfx();
@@ -62,35 +63,46 @@ const Contact = () => {
     setFormData(initialState);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, message } = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-    };
+    const { name, email, message } = formData;
 
-    if (name === "" || email === "" || message === "") {
+    if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
       empty();
       return;
     }
 
+    if (isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
     sfx.play("charge-up", { rate: 2 });
 
-    mail({ name, email, message })
-      .then((res) => {
-        if (res.status === 200) {
-          setMailerResponse("success");
-          emptyForm();
-        } else {
-          setMailerResponse("error");
-        }
-      })
-      .catch((err) => {
-        setMailerResponse("error");
-        console.error(err);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to store submission");
+      }
+
+      await mail({ name, email, message });
+
+      setMailerResponse("success");
+      emptyForm();
+    } catch (err) {
+      console.error("Contact submission failed:", err);
+      setMailerResponse("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -110,11 +122,13 @@ const Contact = () => {
 
   useEffect(() => {
     const buttonEl = buttonElementRef.current;
-    const handleButtonClick = (e) => {
-      if (!buttonElementRef.current.classList.contains("active")) {
-        buttonElementRef.current.classList.add("active");
+    if (!buttonEl) return;
 
-        gsap.to(buttonElementRef.current, {
+    const handleButtonClick = (e) => {
+      if (!buttonEl.classList.contains("active")) {
+        buttonEl.classList.add("active");
+
+        gsap.to(buttonEl, {
           keyframes: [
             {
               "--left-wing-first-x": 50,
@@ -290,7 +304,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal">
+        <form onSubmit={handleSubmit} className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal">
           <motion.div
             initial={{ opacity: 0, y: 64 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -347,37 +361,36 @@ const Contact = () => {
               </label>
             </div>
           </motion.div>
-        </form>
-        <div className="mt-9 mx-auto link">
-          <button
-            ref={buttonElementRef}
-            className={styles.button}
-            disabled={
-              formData.name === "" ||
-              formData.email === "" ||
-              formData.message === ""
-                ? true
-                : false
-            }
-            onClick={handleSubmit}
-          >
-            <span>Send -&gt;</span>
-            <span className={styles.success}>
-              <svg viewBox="0 0 16 16">
-                <polyline points="3.75 9 7 12 13 5"></polyline>
+          <div className="mt-9 mx-auto link">
+            <button
+              ref={buttonElementRef}
+              className={styles.button}
+              type="submit"
+              disabled={
+                isSubmitting ||
+                formData.name.trim() === "" ||
+                formData.email.trim() === "" ||
+                formData.message.trim() === ""
+              }
+            >
+              <span>{isSubmitting ? "Sending..." : "Send -\u003e"}</span>
+              <span className={styles.success}>
+                <svg viewBox="0 0 16 16">
+                  <polyline points="3.75 9 7 12 13 5"></polyline>
+                </svg>
+                Sent
+              </span>
+              <svg className={styles.trails} viewBox="0 0 33 64">
+                <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
+                <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
               </svg>
-              Sent
-            </span>
-            <svg className={styles.trails} viewBox="0 0 33 64">
-              <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
-              <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
-            </svg>
-            <div className={styles.plane}>
-              <div className={styles.left} />
-              <div className={styles.right} />
-            </div>
-          </button>
-        </div>
+              <div className={styles.plane}>
+                <div className={styles.left} />
+                <div className={styles.right} />
+              </div>
+            </button>
+          </div>
+        </form>
       </div>
       <style jsx global>{`
         input,
