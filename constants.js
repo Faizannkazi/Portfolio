@@ -99,31 +99,13 @@ export const PROJECTS = [
     tech: ["python", "pandas", "gemini","streamlit"
     ],
   },
-  {
-    name: "House Price Prediction",
-    imageKey: "house-price",
-    description:
-      "Developed a regression model for predicting house prices and deployed it through a Flask backend.",
-    gradient: ["#4D96FF", "#1B262C"],
-    url: "https://github.com/Faizannkazi/Pune_house_price_predictor",
-    tech: ["python", "flask"],
-  },
-  {
-    name: "Weather Monitoring Web App",
-    imageKey: "weather-site",
-    description:
-      "Built a responsive web app using OpenWeatherMap API to display real-time weather conditions.",
-    gradient: ["#22C55E", "#0F766E"],
-    url: "https://github.com/Faizannkazi/Weather-website",
-    tech: ["javascript", "html", "css"],
-  },
   
-  {
+   {
     name: "Student Feedback Analysis",
     imageKey: "student-feedback",
     description: "NLP-based student feedback analysis project (GitHub repo).",
     gradient: ["#9C27B0", "#7B1FA2"],
-    url: "https://github.com/Faizannkazi/Student-Feedback-Analysis",
+    url: "https://student-feedback-analysis-1.onrender.com",
     tech: ["python"],
   },
   {
@@ -134,37 +116,71 @@ export const PROJECTS = [
     url: "https://github.com/Faizannkazi/GreenGuardAi",
     tech: ["python"],
   },
+
+  {
+    name: "House Price Prediction",
+    imageKey: "house-price",
+    description:
+      "Developed a regression model for predicting house prices and deployed it through a Flask backend.",
+    gradient: ["#4D96FF", "#1B262C"],
+    url: "https://github.com/Faizannkazi/Pune_house_price_predictor",
+    tech: ["python", "flask"],
+  },
+
+   {
+    name: "Weatherly",
+    imageKey: "weather-site",
+    description:
+      "Built a responsive web app using OpenWeatherMap API to display real-time weather conditions.",
+    gradient: ["#22C55E", "#0F766E"],
+    url: "https://github.com/Faizannkazi/Weather-website",
+    tech: ["javascript", "html", "css"],
+  }
 ];
 
 export const WORK_CONTENTS = {
   PROJECTS: [
     {
-      title: "Resume Score & Job Recommendation",
+      title: "Python Internship at Puneri Pattern",
       description:
-        "Created an ATS simulator in Streamlit that analyzes resumes vs job descriptions using Google Gemini semantic analysis.",
+        "Completed a Python internship at Puneri Pattern, where I developed AI-driven solutions for real-world business challenges, gaining hands-on experience in Python programming and machine learning concepts.",
+      // content: (
+      //   <div className="h-full w-full flex items-center justify-center text-white px-4">
+      //     AI & Data Analysis Project
+      //   </div>
+      // ),
       content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          AI & Web Application Project
-        </div>
-      ),
+  <img
+    src="puneriPattern.jpeg"
+    alt="Puneri Pattern Certificate"
+    className="h-full w-full object-cover rounded-xl"
+  />
+),
     },
     {
-      title: "House Price Prediction",
+      title: "Data Analysis internship at WeIntern",
       description:
-        "Built a predictive regression model with Scikit-learn, integrated it with a Flask backend for real-time house price estimation.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Machine Learning Project
-        </div>
-      ),
+        "Worked on data analysis projects during an internship at WeIntern, utilizing Python and data visualization techniques to extract insights and support decision-making processes.",
+      // content: (
+      //   <div className="h-full w-full flex items-center justify-center text-white px-4">
+      //     Data Analysis Project
+      //   </div>
+      // ),
+       content: (
+  <img
+    src="weintern.jpeg"
+    alt="WeIntern Certificate"
+    className="h-full w-full object-cover rounded-xl"
+  />
+),
     },
     {
-      title: "Weather Monitoring App",
+      title: "Freelance Shopify web development",
       description:
-        "Built a responsive web app with HTML, CSS, JavaScript, and OpenWeatherMap API to deliver real-time weather insights.",
+        "Designed and developed custom Shopify themes and features for clients, enhancing their e-commerce presence with responsive and user-friendly web solutions.",
       content: (
         <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Frontend Web Project
+          Shopify Freelance Project
         </div>
       ),
     },
@@ -190,16 +206,16 @@ export const WORK_CONTENTS = {
         </div>
       ),
     },
-    {
-      title: "Full Tuition Waiver",
-      description:
-        "Awarded a full tuition fee waiver at Savitribai Phule Pune University based on academic merit.",
-      content: (
-        <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Scholarship Achievement
-        </div>
-      ),
-    },
+    // {
+    //   title: "Full Tuition Waiver",
+    //   description:
+    //     "Awarded a full tuition fee waiver at Savitribai Phule Pune University based on academic merit.",
+    //   content: (
+    //     <div className="h-full w-full flex items-center justify-center text-white px-4">
+    //       Scholarship Achievement
+    //     </div>
+    //   ),
+    // },
     {
       title: "IIT Bombay AI Workshop",
       description:
